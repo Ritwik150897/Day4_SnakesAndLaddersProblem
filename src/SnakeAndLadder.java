@@ -57,6 +57,10 @@ public class SnakeAndLadder {
 
             playerPosition = playerPosition + diceValue;
 
+            if (playerPosition > 100) {
+                playerPosition = playerPosition - diceValue;
+            }
+
             playerPosition = checkForSnake(playerPosition);
             playerPosition = checkForladder(playerPosition);
 
