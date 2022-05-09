@@ -51,7 +51,45 @@ public class SnakeAndLadder {
         System.out.println("---------------------");
         System.out.println("Player Starting Position: " + playerPosition);
 
-        int diceValue = (((int) (Math.random() * 10)) % 6) + 1;
-        System.out.println("Dice Roll Value Obtained: " + diceValue);
+        while (isGameRunning) {
+            int diceValue = (((int) (Math.random() * 10)) % 6) + 1;
+            System.out.println("Dice Value: " + diceValue);
+
+            playerPosition = playerPosition + diceValue;
+
+            if (playerPosition > 100) {
+                playerPosition = playerPosition - diceValue;
+            }
+
+            playerPosition = checkForSnake(playerPosition);
+            playerPosition = checkForladder(playerPosition);
+
+            System.out.println("Player New Position: " + playerPosition);
+
+
+            if (playerPosition == 100) {
+                isGameRunning = false;
+            }
+            System.out.println("------------------------");
+        }
+    }
+    private static Integer checkForSnake(int playerPosition) {
+        for (int i = 0; i < snakePosition.length; i++) {
+            if (playerPosition == snakePosition[i][0]) {
+                System.out.println("Snake Encountered at: " + snakePosition[i][0]);
+                return snakePosition[i][1];
+            }
+        }
+        return playerPosition;
+    }
+
+    private static Integer checkForladder(int playerPosition) {
+        for (int i = 0; i < ladderPosition.length; i++) {
+            if (playerPosition == ladderPosition[i][1]) {
+                System.out.println("Ladder encountered at: " + ladderPosition[i][1]);
+                return ladderPosition[i][0];
+            }
+        }
+        return playerPosition;
     }
 }
