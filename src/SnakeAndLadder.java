@@ -50,5 +50,8 @@ public class SnakeAndLadder {
         System.out.println("Snake And Ladder Game");
         System.out.println("---------------------");
         System.out.println("Player Starting Position: " + playerPosition);
+
+        int diceValue = (((int) (Math.random() * 10)) % 6) + 1;
+        System.out.println("Dice Roll Value Obtained: " + diceValue);
     }
 }
