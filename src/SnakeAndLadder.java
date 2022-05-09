@@ -53,7 +53,7 @@ public class SnakeAndLadder {
 
         while (isGameRunning) {
             int diceValue = (((int) (Math.random() * 10)) % 6) + 1;
-            System.out.println("Dice Value: " + diceValue);
+            System.out.println("Dice Roll Value Obtained: " + diceValue);
 
             playerPosition = playerPosition + diceValue;
 
@@ -68,6 +68,7 @@ public class SnakeAndLadder {
 
 
             if (playerPosition == 100) {
+                System.out.println("Player Wins!");
                 isGameRunning = false;
             }
             System.out.println("------------------------");
