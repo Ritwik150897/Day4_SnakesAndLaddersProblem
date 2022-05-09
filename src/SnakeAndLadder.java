@@ -46,6 +46,7 @@ public class SnakeAndLadder {
 
         int playerPosition = 0;
         boolean isGameRunning = true;
+        int cnt = 0;
 
         System.out.println("Snake And Ladder Game");
         System.out.println("---------------------");
@@ -56,6 +57,7 @@ public class SnakeAndLadder {
             System.out.println("Dice Roll Value Obtained: " + diceValue);
 
             playerPosition = playerPosition + diceValue;
+            cnt++;
 
             if (playerPosition > 100) {
                 playerPosition = playerPosition - diceValue;
@@ -72,6 +74,7 @@ public class SnakeAndLadder {
                 isGameRunning = false;
             }
             System.out.println("------------------------");
+            System.out.println("Number of Times Die is Rolled: " + cnt);
         }
     }
     private static Integer checkForSnake(int playerPosition) {
